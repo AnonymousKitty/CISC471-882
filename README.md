@@ -1,2 +1,2 @@
 # CISC471-882
-cisc 471/882 project on developing a survival model based on binary classification
+Project on developing a survival model based on binary cancer classification of lymph nodes
