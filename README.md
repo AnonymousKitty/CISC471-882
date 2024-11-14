@@ -12,13 +12,13 @@ https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/
 https://www.cancerimagingarchive.net/collection/mediastinal-lymph-node-seg/
 
 ## Imports/installations
-This project uses Python and Anaconda 
+This project uses Python and Anaconda.
 
-### Python Installation Guide
-* Install python (https://www.python.org/downloads/)
+You can install python at https://www.python.org/downloads/
 
-### Anaconda Installation Guide
-* Install anaconda (https://anaconda.org/)
+You can install anaconda at https://anaconda.org/
+
+### Anaconda environment setup
 * Open **Anaconda Prompt**
 * Create an environment using ```conda create --name <env-name>``` 
 * Activate the environment using ```conda activate <env-name>``` 
