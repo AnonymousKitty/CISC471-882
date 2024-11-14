@@ -11,28 +11,31 @@ https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/
 #### Pan-cancerous lymph node CTs with annotations:
 https://www.cancerimagingarchive.net/collection/mediastinal-lymph-node-seg/
 
-## Imports/instalations
+## Imports/installations
 This project uses Python and Anaconda 
 
 ### Python Installation Guide
+* Install python (https://www.python.org/downloads/)
 
-### Jupyter Installation Guide
-* install anaconda
-* open anaconda prompt
-* conda create --name <env-name> to create environment
-* conda activate <env-name> 
-* pip install packages in the environment
+### Anaconda Installation Guide
+* Install anaconda (https://anaconda.org/)
+* Open **Anaconda Prompt**
+* Create an environment using ```conda create --name <env-name>``` 
+* Activate the environment using ```conda activate <env-name>``` 
+* Install required packages in the environment
 
 ### Required Packages
 To install all the required packages, run the following in your command line:
 
-#### pip install pydicom opencv-python numpy scikit-learn pandas
+```
+pip install pydicom opencv-python numpy scikit-learn pandas
+```
 
 Individually, all the imports required are:
 
-* pydicom --> pip install pydicom
+* pydicom --> ```pip install pydicom```
 * os --> standard library
-* cv2 --> pip install opencv-python
-* numpy --> pip install numpy
-* sklearn --> pip install scikit-learn
-* pandas --> pip install pandas
+* cv2 --> ```pip install opencv-python```
+* numpy --> ```pip install numpy```
+* sklearn --> ```pip install scikit-learn```
+* pandas --> ```pip install pandas```
