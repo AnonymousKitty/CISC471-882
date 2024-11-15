@@ -1,0 +1,8 @@
+//  duplicate this file and name it 'paths.json' then fill it in with all of your saved paths
+{
+    "personal_path" : "",
+    "non_cancerous_path" : "",
+    "non_cancerous_annotations_path" : "",
+    "cancerous_path" : "",
+    "cancerous_annotations_path" : ""
+}

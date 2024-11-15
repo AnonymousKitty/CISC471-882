@@ -1,0 +1,4 @@
+# all files to ignore
+
+# ignore the paths file so we dont keep changing them for eachother
+paths.json
