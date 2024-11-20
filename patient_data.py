@@ -14,6 +14,9 @@ class Patient:
         self.seg = seg_data.Seg_Data(resolution)
         self.overlay = []
         self.load_data(self.path)
+        # automatically assume this group is non cancerous
+        self.labels = [0] * len(self.ct.images)
+        self.overall = 0
 
     
     def load_data(self, folder_path):
@@ -82,3 +85,12 @@ class Patient:
             if output_folder:
                 cv2.imwrite(f"{path}/image_{i}.jpg", overlay[i])
 
+    def label_imgs(self):
+        self.labels = []
+        self.overall = 0
+        for uid in self.ct.dicoms.keys():
+            if uid in self.seg.dicoms:
+                self.labels.append(1)
+                self.overall = 1
+            else:
+                self.labels.append(0)
