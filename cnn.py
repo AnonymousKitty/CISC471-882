@@ -2,6 +2,7 @@ from keras.models import Sequential
 from keras.layers import (
     Conv2D, MaxPooling2D, AveragePooling2D, Flatten, Dense, BatchNormalization, Dropout, ReLU
 )
+from keras.optimizers import Adam
 from sklearn.metrics import classification_report
 
 class CNN():
@@ -33,6 +34,7 @@ class CNN():
             Dropout(0.5),  # Dropout to reduce overfitting
             Dense(1, activation="sigmoid")  # Binary classification
         ])
+        model.compile(loss='binary_crossentropy', optimizer=Adam(learning_rate=0.001), metrics=['accuracy'])
         self.history = model.fit(
             x_train, y_train,  # Training data
             batch_size=32,  # Number of samples per batch
