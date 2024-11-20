@@ -12,7 +12,6 @@ class Patient:
         self.path = path
         self.ct = ct_data.Ct_Data(resolution)
         self.seg = seg_data.Seg_Data(resolution)
-        self.overlay = []
         self.load_data(self.path)
         # automatically assume this group is non cancerous
         self.labels = [0] * len(self.ct.images)
@@ -36,6 +35,7 @@ class Patient:
             elif os.path.isdir(path):
                 self.load_data(path)
 
+    # function that allows users to visualize data
     def save_data_as_images(self, path):
         ct_folder = path + "/ct"
         seg_folder = path + "/segmentations"
@@ -50,6 +50,7 @@ class Patient:
         for i, img in enumerate(self.seg.images):
             cv2.imwrite(f"{seg_folder}/image_{i}.jpg", img)
 
+    # function that allows users to see annotations on top of cts
     def overlay_seg_on_ct(self, output_folder = None, color_options = [[255,0,0],[0,255,0],[0,0,255]]):
         # local function to annotate images
         def annotate(image, annotation, color):
