@@ -39,4 +39,3 @@ Individually, all the imports required are:
 * numpy --> ```pip install numpy```
 * sklearn --> ```pip install scikit-learn```
 * pandas --> ```pip install pandas```
-* json --> standard library
