@@ -3,9 +3,18 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import json
+import pydicom
 import patient_data
 import cnn
+import cv2
 from sklearn.metrics import classification_report, confusion_matrix
+from keras.models import Sequential
+from keras.layers import (
+    Conv2D, MaxPooling2D, AveragePooling2D, Flatten, Dense, BatchNormalization, Dropout, ReLU
+)
+from keras.optimizers import Adam
+from copy import deepcopy
+
 
 
 all_paths = json.loads(open("./paths.json").read())
