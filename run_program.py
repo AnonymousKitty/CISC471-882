@@ -74,13 +74,15 @@ for patient in nc_patients.values():
 # x2, y2 = zip(*combined)
 
 def generate_train_test():
-    # to ensure equal distribution of non-cancer to cancer data, split the data before merging it
+    # To ensure equal distribution of non-cancer to cancer data, split the data before merging it
     x_train, x_test, y_train, y_test = train_test_split(x_c, y_c, test_size=0.2, random_state=42)
     x_train_add, x_test_add, y_train_add, y_test_add = train_test_split(x_nc, y_nc, test_size=0.2, random_state=42)
-    x_train.extend(x_train_add) 
-    x_test.extend(x_test_add) 
-    y_train.extend(y_train_add) 
-    y_test.extend(y_test_add) 
+    x_train.extend(x_train_add)
+    x_test.extend(x_test_add)
+    y_train.extend(y_train_add)
+    y_test.extend(y_test_add)
+    return x_train, x_test, y_train, y_test
+ 
 
 x_train, x_test, y_train, y_test = generate_train_test()
 
