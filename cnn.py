@@ -8,8 +8,8 @@ from keras.preprocessing.image import ImageDataGenerator
 class CNN():
     def __init__(self, x_train, x_test, y_train, y_test):
         # Normalize input data
-        self.x_train = x_train / 255.0
-        self.x_test = x_test / 255.0
+        self.x_train = x_train
+        self.x_test = x_test
         self.y_train = y_train
         self.y_test = y_test
 
