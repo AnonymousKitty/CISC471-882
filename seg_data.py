@@ -6,7 +6,7 @@ class Seg_Data():
         self.full_dicoms = []
         self.dicoms = {}
         self.images = []
-        self.resolution = res
+     
 
 
     def import_dicoms(self, new_item):
@@ -35,5 +35,4 @@ class Seg_Data():
             img_normalized = cv2.normalize(pix_array, None, 0, 255, cv2.NORM_MINMAX)
             # the segmentations shouldn't be rgb so we dont need to convert the channels
             for img in img_normalized:
-                img_resized = cv2.resize(img, self.resolution)
-                self.images.append(img_resized)
+                self.images.append(img)
