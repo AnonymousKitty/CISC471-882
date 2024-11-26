@@ -8,10 +8,10 @@ from keras.preprocessing.image import ImageDataGenerator
 class CNN():
     def __init__(self, x_train, x_test, y_train, y_test):
         # Normalize input data
-        self.x_train = x_train
-        self.x_test = x_test
-        self.y_train = y_train
-        self.y_test = y_test
+        x_train = x_train / 255
+        x_test = x_test / 255
+        y_train = y_train
+        y_test = y_test
 
         # Load ResNet50 as the base model
         base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(512, 512, 3))
@@ -43,19 +43,19 @@ class CNN():
             zoom_range=0.1,
             horizontal_flip=True
         )
-        datagen.fit(self.x_train)
+        datagen.fit(x_train)
 
         # Train the model
         self.history = self.model.fit(
-            datagen.flow(self.x_train, self.y_train, batch_size=32),
-            validation_data=(self.x_test, self.y_test),
+            datagen.flow(x_train, y_train, batch_size=32),
+            validation_data=(x_test, y_test),
             epochs=20,
             verbose=1
         )
 
         # Evaluate the model
-        self.test_loss, self.test_acc = self.model.evaluate(self.x_test, self.y_test)
-        self.y_pred = (self.model.predict(self.x_test) > 0.5).astype("int32")
+        self.test_loss, self.test_acc = self.model.evaluate(x_test, y_test)
+        self.y_pred = (self.model.predict(x_test) > 0.5).astype("int32")
 
         # Display evaluation metrics
-        print(classification_report(self.y_test, self.y_pred))
+        print(classification_report(y_test, self.y_pred))
