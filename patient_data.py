@@ -1,19 +1,17 @@
 import ct_data
-import seg_data
 import os
+import pydicom
+
 # import cv2
 # from copy import deepcopy
 
 class Patient:
     def __init__(self, path):
-        self.path = path
         self.ct = ct_data.Ct_Data()
-        self.seg = seg_data.Seg_Data()
-        self.load_data(self.path)
+        self.segpath = None
+        self.load_data(path)
         # automatically assume this group is non cancerous
-        self.labels = [0] * len(self.ct.images)
-        self.overall = 0
-
+        self.labels = [0] * len(self.ct.data)
     
     def load_data(self, folder_path):
         folder = os.listdir(folder_path)
@@ -27,10 +25,24 @@ class Patient:
                 self.ct.import_dicoms(path)
             # check if this is an annotation file (folder should only have 1 file which will be a dcm)
             elif folder_size == 1 and file_name.endswith(".dcm"):
-                self.seg.import_dicoms(path)
+                self.segpath = path
             # check if this is folder, if so go into the folder
             elif os.path.isdir(path):
                 self.load_data(path)
+
+    def label_imgs(self):
+        self.labels = []
+        ruidlist = []
+        full_dicom = pydicom.dcmread(self.segpath)
+        # load in all the images according to the seg dicom
+        for frame in full_dicom.PerFrameFunctionalGroupsSequence:
+            ruid = frame.DerivationImageSequence[0].SourceImageSequence[0].ReferencedSOPInstanceUID
+            ruidlist.append(ruid)
+        for uid in self.ct.data.keys():
+            if uid in ruidlist:
+                self.labels.append(1)
+            else:
+                self.labels.append(0)
 
     # removing the following 2 functions to try to save memory
 
@@ -84,13 +96,3 @@ class Patient:
     #         # if an output path was provided, save the completed image to this path
     #         if output_folder:
     #             cv2.imwrite(f"{path}/image_{i}.jpg", overlay[i])
-
-    def label_imgs(self):
-        self.labels = []
-        self.overall = 0
-        for uid in self.ct.dicoms.keys():
-            if uid in self.seg.ruids:
-                self.labels.append(1)
-                self.overall = 1
-            else:
-                self.labels.append(0)

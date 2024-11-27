@@ -3,13 +3,13 @@ from keras.models import Model
 from keras.layers import GlobalAveragePooling2D, Dense, Dropout
 from keras.optimizers import Adam
 from sklearn.metrics import classification_report
-from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 class CNN():
     def __init__(self, x_train, x_test, y_train, y_test):
         # Normalize input data
-        x_train = x_train / 255
-        x_test = x_test / 255
+        x_train = x_train
+        x_test = x_test
         y_train = y_train
         y_test = y_test
 
