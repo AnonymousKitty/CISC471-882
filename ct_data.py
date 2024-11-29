@@ -16,5 +16,5 @@ class Ct_Data:
         pix_array = dicom.pixel_array
         img_normalized = cv2.normalize(pix_array, None, 0, 255, cv2.NORM_MINMAX)
         # ct images should be rgb so we need to create 3 channels
-        img_rgb = cv2.merge([img_normalized, img_normalized, img_normalized])
-        return img_rgb
+        # img_rgb = cv2.merge([img_normalized, img_normalized, img_normalized])
+        return img_normalized

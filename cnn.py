@@ -7,14 +7,9 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 class CNN():
     def __init__(self, x_train, x_test, y_train, y_test):
-        # Normalize input data
-        x_train = x_train
-        x_test = x_test
-        y_train = y_train
-        y_test = y_test
 
         # Load ResNet50 as the base model
-        base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(512, 512, 3))
+        base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(512, 512))
         x = base_model.output
         x = GlobalAveragePooling2D()(x)  # Add global average pooling to reduce feature dimensions
         x = Dense(128, activation='relu')(x)  # Add a dense layer with 128 units
