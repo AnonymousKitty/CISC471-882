@@ -1,5 +1,6 @@
 
 import pydicom
+import numpy as np
 import cv2
 
 class Ct_Data:
@@ -15,6 +16,5 @@ class Ct_Data:
     def load_images(self, dicom):
         pix_array = dicom.pixel_array
         img_normalized = cv2.normalize(pix_array, None, 0, 255, cv2.NORM_MINMAX)
-        # ct images should be rgb so we need to create 3 channels
-        # img_rgb = cv2.merge([img_normalized, img_normalized, img_normalized])
+        img_array = np.asarray(img_normalized).astype('float32')/255
         return img_normalized

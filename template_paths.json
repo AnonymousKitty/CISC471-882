@@ -1,6 +1,5 @@
 //  duplicate this file and name it 'paths.json' then fill it in with all of your saved paths and delete this line
 {
     "personal_path" : "",
-    "non_cancerous_path" : "",
     "cancerous_path" : ""
 }

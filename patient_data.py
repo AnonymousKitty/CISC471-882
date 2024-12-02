@@ -2,9 +2,6 @@ import ct_data
 import os
 import pydicom
 
-# import cv2
-# from copy import deepcopy
-
 class Patient:
     def __init__(self, path):
         self.ct = ct_data.Ct_Data()
