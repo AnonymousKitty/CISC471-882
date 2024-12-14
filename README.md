@@ -5,9 +5,6 @@ Project on developing a survival model based on binary cancer classification of 
 ## Datasets 
 This project uses the Images/Segmentation data found in the following TCIA repositories:
 
-#### Non-cancerous lymph node CTs with annotations:
-https://www.cancerimagingarchive.net/collection/ct-lymph-nodes/
-
 #### Pan-cancerous lymph node CTs with annotations:
 https://www.cancerimagingarchive.net/collection/mediastinal-lymph-node-seg/
 
@@ -16,7 +13,7 @@ This project uses Python and Anaconda.
 
 You can install python at https://www.python.org/downloads/
 
-You can install anaconda at https://anaconda.org/
+You can install Anaconda at https://anaconda.org/
 
 ### Anaconda environment setup
 * Open **Anaconda Prompt**
