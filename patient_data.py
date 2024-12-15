@@ -4,11 +4,12 @@ import pydicom
 
 class Patient:
     def __init__(self, path):
-        self.ct = ct_data.Ct_Data()
+        self.ctuids = []
+        self.ctpaths = []
         self.segpath = None
         self.load_data(path)
         # automatically assume this group is non cancerous
-        self.labels = [0] * len(self.ct.data)
+        self.labels = [0] * len(self.ctuids)
     
     def load_data(self, folder_path):
         folder = os.listdir(folder_path)
@@ -19,7 +20,10 @@ class Patient:
             path = os.path.join(folder_path, file_name)
             # check if this is a ct file (folder will have multiple files and this file will be a dcm)
             if folder_size > 1 and file_name.endswith(".dcm"):
-                self.ct.import_dicoms(path)
+                self.ctpaths.append(path)
+                item = pydicom.dcmread(path)
+                uid = item.SOPInstanceUID
+                self.ctuids.append(uid)
             # check if this is an annotation file (folder should only have 1 file which will be a dcm)
             elif folder_size == 1 and file_name.endswith(".dcm"):
                 self.segpath = path
@@ -35,7 +39,7 @@ class Patient:
         for frame in full_dicom.PerFrameFunctionalGroupsSequence:
             ruid = frame.DerivationImageSequence[0].SourceImageSequence[0].ReferencedSOPInstanceUID
             ruidlist.append(ruid)
-        for uid in self.ct.data.keys():
+        for uid in self.ctuids:
             if uid in ruidlist:
                 self.labels.append(1)
             else:
