@@ -13,9 +13,9 @@ class Patient:
         if self.ct_paths == []:
             # catch case where something went wrong with this filepath
             return
-        # automatically assume this group is non cancerous
         if has_seg:
             self.label_imgs()
+        # automatically assume this group is non cancerous
         else:
             self.labels = [0] * len(self.ct_uids)
     
