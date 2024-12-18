@@ -40,3 +40,8 @@ Individually, all the imports required are:
 * json --> standard library
 * tensorflow --> ```pip install tensorflow```
 * keras --> ```pip install keras```
+
+## License
+Copyright (C) 2024 Catarina Borges McDiarmid, Mide Olanrewaju & Shrinidhi Thatahngudi Sampath Krishnan
+
+See the [LICENSE](https://github.com/AnonymousKitty/CISC471-882/blob/cb98497733e0b3fb0a609d1be0c82fead46cd931/LICENSE.md) file for license rights and limitations (GNU General Public License family)
