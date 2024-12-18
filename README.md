@@ -41,6 +41,9 @@ Individually, all the imports required are:
 * tensorflow --> ```pip install tensorflow```
 * keras --> ```pip install keras```
 
+### Additional requirements
+To run the program, you will need to copy the [template_paths.json](https://github.com/AnonymousKitty/CISC471-882/blob/eba987d8bfee97518d0a9eec438370b503a8b3ca/template_paths.json) file on your computer and follow the instructions in the file.
+
 ## License
 Copyright (C) 2024 Catarina Borges McDiarmid, Mide Olanrewaju & Shrinidhi Thatahngudi Sampath Krishnan
 
