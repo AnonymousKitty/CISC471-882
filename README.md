@@ -17,7 +17,7 @@ You can install Anaconda at https://anaconda.org/
 
 ### Anaconda environment setup
 * Open **Anaconda Prompt**
-* Create an environment using ```conda create --name <env-name>``` 
+* Create an environment using ```conda create --name <env-name> python==3.12.3``` 
 * Activate the environment using ```conda activate <env-name>``` 
 * Install required packages in the environment
 
@@ -25,7 +25,7 @@ You can install Anaconda at https://anaconda.org/
 To install all the required packages, run the following in your command line:
 
 ```
-pip install pydicom opencv-python numpy scikit-learn pandas
+pip install -r requirements.txt
 ```
 
 Individually, all the imports required are:
@@ -35,5 +35,6 @@ Individually, all the imports required are:
 * cv2 --> ```pip install opencv-python```
 * numpy --> ```pip install numpy```
 * sklearn --> ```pip install scikit-learn```
-* pandas --> ```pip install pandas```
 * json --> standard library
+* tensorflow --> ```pip install tensorflow```
+* keras --> ```pip install keras```
