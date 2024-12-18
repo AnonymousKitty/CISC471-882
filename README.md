@@ -1,9 +1,11 @@
 # CISC471-882
+### Authors: Catarina Borges McDiarmid, Mide Olanrewaju & Shrinidhi Thatahngudi Sampath Krishnan
+
 ## Description
-Project on developing a survival model based on binary cancer classification of lymph nodes CT images
+CISC 471/882 final project on developing a binary cancer classification computer neural network (CNN) model to classify mediastinal lymph nodes using CT images.
 
 ## Datasets 
-This project uses the Images/Segmentation data found in the following TCIA repositories:
+This project uses the images and segmentation data found in the following TCIA repository:
 
 #### Pan-cancerous lymph node CTs with annotations:
 https://www.cancerimagingarchive.net/collection/mediastinal-lymph-node-seg/
