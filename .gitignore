@@ -2,3 +2,8 @@
 
 # ignore the paths file so we dont keep changing them for eachother
 paths.json
+manifest-1730659937084
+manifest-1730660435275
+.venv
+.venv1
+.ipynb_checkpoints/*
